@@ -44,7 +44,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 vectorizer = TfidfVectorizer(
     max_features=5000,
     ngram_range=(1, 2)
-)
+) # Compare with Bag of Words
 
 X_train_tfidf = vectorizer.fit_transform(X_train)
 X_test_tfidf = vectorizer.transform(X_test)
@@ -87,15 +87,15 @@ with st.expander("📈 Model Evaluation Details"):
     st.text("Classification Report:")
     st.text(classification_report(y_test, y_pred))
 
-    st.text("Confusion Matrix:")
-    st.write(confusion_matrix(y_test, y_pred))
+    # st.text("Confusion Matrix:")
+    # st.write(confusion_matrix(y_test, y_pred))
 
 # ------------------ Dataset Preview ------------------ #
 st.subheader("📊 Dataset Preview")
 
 with st.expander("Click to view dataset"):
-    st.write("First 10 rows:")
-    st.dataframe(df.head(10))
+    # st.write("First 10 rows:")
+    st.dataframe(df.head(8))
 
     st.write("Dataset Shape:")
     st.write(df.shape)
